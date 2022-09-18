@@ -1,15 +1,13 @@
 import Header from '../components/Header/Header';
 import ActiveCard from '../components/ActiveCard/ActiveCard';
-
+import CardList from '../components/CardList/CardList';
 
 const CardsPage = () => {
     return (
         <div>
             <Header />
-            <div>
-                <h2>kort</h2>
-            </div>
             <ActiveCard />
+            <CardList />
         </div>
     )
 }
