@@ -1,4 +1,6 @@
 import Header from '../components/Header/Header';
+import ActiveCard from '../components/ActiveCard/ActiveCard';
+
 
 const CardsPage = () => {
     return (
@@ -7,6 +9,7 @@ const CardsPage = () => {
             <div>
                 <h2>kort</h2>
             </div>
+            <ActiveCard />
         </div>
     )
 }
