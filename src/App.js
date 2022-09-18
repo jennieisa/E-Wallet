@@ -1,10 +1,16 @@
+import {Routes, Route} from 'react-router-dom';
+
 import './App.css';
+import CardsPage from './pages/CardsPage';
+import AddCardPage from './pages/AddCardPage';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      <Routes>
+        <Route path='/cards' element={<CardsPage />} />
+        <Route path='/addcard' element={<AddCardPage />} />
+      </Routes>
     </div>
   );
 }
