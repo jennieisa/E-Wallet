@@ -8,34 +8,29 @@ const cardListSlice = createSlice({
                 cardnumber: 1234567891012345,
                 cardholder: "Jennie Isaksson",
                 valid: "22/23",
-                vendor: "AMEX",
+                vendor: "amex",
+                id: 1,
                 active: false,
             },       
             {
                 cardnumber: 1234567891012345,
                 cardholder: "Jennie Isaksson",
                 valid: "22/23",
-                vendor: "AMEX",
+                vendor: "amex",
+                id: 2,
                 active: true,
             },
-            {
-                cardnumber: 1234567891012345,
-                cardholder: "Jennie Isaksson",
-                valid: "22/23",
-                vendor: "AMEX",
-                active: false,
-            },
-            {
-                cardnumber: 1234567891012345,
-                cardholder: "Jennie Isaksson",
-                valid: "22/23",
-                vendor: "AMEX",
-                active: false,
-            },
         ],
+        latestId: 2,
     },
     reducers: {
-        //actions
+        addCard: (state, {payload}) => {
+            state.cardsInfo.push(payload);
+            state.latestId += 1;
+        },
+        deleteCard: (state, {payload}) => {
+            state.cardsInfo = state.cardsInfo.filter((card) => card.id !== payload);
+        }
     }, 
     extraReducers: {
         //async actions
@@ -43,3 +38,4 @@ const cardListSlice = createSlice({
 })
 
 export default cardListSlice.reducer;
+export const {addCard, deleteCard} = cardListSlice.actions;
