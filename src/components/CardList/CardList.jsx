@@ -1,10 +1,13 @@
 import Card from "../Card/Card";
 
 import { useSelector } from "react-redux";
+import {useNavigate} from 'react-router-dom';
 
 const CardList = () => {
     const cards = useSelector((state) => state.cardList.cardsInfo);
     console.log(cards);
+
+    const navigate = useNavigate();
 
     return (
         <section>
@@ -18,12 +21,12 @@ const CardList = () => {
                 <ul>
                 {cards.map((card, index) => (
                     card.active === false &&
-                        <li>
-                            <Card key={index} card={card}/>
+                        <li key={index}>
+                            <Card card={card}/>
                         </li>
                 ))}
                 </ul>
-                <button>ADD A NEW CARD</button>
+                <button onClick={() => navigate('/addcard')}>ADD A NEW CARD</button>
             </section>
         </section>
     )
