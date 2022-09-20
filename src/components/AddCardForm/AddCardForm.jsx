@@ -47,7 +47,7 @@ const AddCardForm = () => {
         <section>
             <article>
                 <p id="selectVendorInput">Vendor </p>
-                <p id="cardnumberInput">Cardnumber: {userInput}</p>
+                <p id="cardnumberInput">Cardnumber {userInput}</p>
                 <p id="cardholderInput">Cardholder {userInput}</p>
                 <p id="validInput">Valid {userInput}</p>
                 <p id="ccvInput">CCV</p>

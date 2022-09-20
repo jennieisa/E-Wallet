@@ -30,6 +30,20 @@ const cardListSlice = createSlice({
         },
         deleteCard: (state, {payload}) => {
             state.cardsInfo = state.cardsInfo.filter((card) => card.id !== payload);
+        },
+        activateCard: (state, {payload}) => {
+            state.cardsInfo.map((card) => {
+                console.log(card)
+                if(card.active === true) {
+                    card.active = false;
+                    console.log("find card")
+                } else {
+                    console.log("cant find")
+                }
+            })
+
+            state.cardsInfo = state.cardsInfo.filter((card) => card.id === payload);
+            state.cardsInfo.active = true;
         }
     }, 
     extraReducers: {
@@ -38,4 +52,4 @@ const cardListSlice = createSlice({
 })
 
 export default cardListSlice.reducer;
-export const {addCard, deleteCard} = cardListSlice.actions;
+export const {addCard, deleteCard, activateCard} = cardListSlice.actions;

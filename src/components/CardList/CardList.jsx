@@ -1,12 +1,15 @@
 import Card from "../Card/Card";
+import { activateCard } from "./cardListSlice";
 
-import { useSelector } from "react-redux";
-import {useNavigate} from 'react-router-dom';
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from 'react-router-dom';
+
 
 const CardList = () => {
     const cards = useSelector((state) => state.cardList.cardsInfo);
     console.log(cards);
 
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     return (
@@ -23,6 +26,7 @@ const CardList = () => {
                     card.active === false &&
                         <li key={index}>
                             <Card card={card}/>
+                            <button onClick={() => dispatch(activateCard(card))}>ACTIVATE CARD</button>
                         </li>
                 ))}
                 </ul>
