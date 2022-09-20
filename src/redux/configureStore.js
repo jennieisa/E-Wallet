@@ -1,10 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit';
+import cardListSlice from '../components/CardList/cardListSlice';
 
 const store = configureStore({
     reducer: {
-        cards: cardsSlice,
-        user: userSlice,
+        cardList: cardListSlice,
     }
 })
 
 export default store;
+
