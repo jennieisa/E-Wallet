@@ -1,0 +1,41 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+    width: 350px;
+    height: 200px;
+    background-color: hotpink;
+    box-shadow: 2px 2px 5px gray;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+}
+
+.card p {
+    margin: 2px;
+    color: white;
+}
+
+.cardSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.cardnumber {
+    align-self: center;
+    justify-self: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+.cardTextHeading {
+    font-size: 12px;
+}
+
+.cardTextInfo {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}

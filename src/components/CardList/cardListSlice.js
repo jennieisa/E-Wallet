@@ -7,10 +7,16 @@ const cardListSlice = createSlice({
             {
                 cardnumber: 1234567891012345,
                 valid: "22/23",
-                vendor: "amex",
+                vendor: "ROBBER",
                 id: 1,
                 active: true,
-            },       
+            },        {
+                cardnumber: 99999999999999,
+                valid: "22/23",
+                vendor: "GOLD",
+                id: 1,
+                active: false,
+            },    
         ],
         latestId: 2,
         amountCards: 1,

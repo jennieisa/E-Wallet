@@ -1,0 +1,11 @@
+.cardList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inactiveCardList {
+    display: block;
+    list-style: none;
+    padding: 0px;
+}

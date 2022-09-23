@@ -68,9 +68,9 @@ const AddCardForm = () => {
                 <input id="ccv" type="text" onChange={() => handleChange("ccv")}/>
                 <label htmlFor="selectVendor">VENDOR</label>
                 <select name="vendor" id="selectVendor" onChange={() => handleChange("selectVendor")}>
-                    <option value="amex">AMEX</option>
-                    <option value="mastercard">MASTERCARD</option>
-                    <option value="visa">VISA</option>
+                    <option value="ROBBER">ROBBER</option>
+                    <option value="GOLD">GOLD</option>
+                    <option value="LIFE-SAVER">LIFE-SAVER</option>
                 </select>
                 <button onClick={(e) => handleSubmit(e)}>ADD CARD</button>
             </form>

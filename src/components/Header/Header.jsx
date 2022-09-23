@@ -1,3 +1,5 @@
+import styles from './header.module.css';
+
 import { useLocation } from "react-router-dom";
 
 const Header = () => {
@@ -5,9 +7,9 @@ const Header = () => {
 
     return (
         <header>
-            {location.pathname == '/cards' ?
-                <h1>E-WALLET</h1> :
-                <h1>ADD A NEW CARD</h1>
+            {location.pathname === '/cards' ?
+                <h1 className={styles.heading}>E-WALLET</h1> :
+                <h1 className={styles.heading}>ADD A NEW CARD</h1>
             }
         </header>
     )

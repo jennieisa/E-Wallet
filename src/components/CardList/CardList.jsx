@@ -1,6 +1,7 @@
 import Card from "../Card/Card";
 import { activateCard } from "./cardListSlice";
 import { deleteCard } from "./cardListSlice";
+import styles from './cardList.module.css';
 
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
@@ -14,7 +15,7 @@ const CardList = () => {
     const navigate = useNavigate();
 
     return (
-        <section>
+        <section className={styles.cardList}>
             <p>ACTIVE CARD</p>
             {cards.map((card, index) => (
                 card.active === true && 
@@ -22,7 +23,7 @@ const CardList = () => {
             ))}
             <section>
                 <p>INACTIVATE CARDS</p>
-                <ul>
+                <ul className={styles.inactiveCardList}>
                 {cards.map((card, index) => (
                     card.active === false && 
                         <li key={index}>
