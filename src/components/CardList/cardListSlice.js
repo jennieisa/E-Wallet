@@ -6,7 +6,7 @@ const cardListSlice = createSlice({
         cardsInfo: [
             {
                 cardnumber: 1234567891012345,
-                cardholder: "Jennie Isaksson",
+                cardholder: "Jennie Isaksson 1",
                 valid: "22/23",
                 vendor: "amex",
                 id: 1,
@@ -14,7 +14,7 @@ const cardListSlice = createSlice({
             },       
             {
                 cardnumber: 1234567891012345,
-                cardholder: "Jennie Isaksson",
+                cardholder: "Jennie Isaksson 2",
                 valid: "22/23",
                 vendor: "amex",
                 id: 2,
@@ -32,19 +32,16 @@ const cardListSlice = createSlice({
             state.cardsInfo.splice(payload, 1);
         },
         activateCard: (state, {payload}) => {
-            console.log(payload)
-            state.cardsInfo = state.cardsInfo.filter((card) => card !== payload)
-            console.log(state.cardsInfo)
-            /*
-            state.cardsInfo.map((card) => {
-                console.log(card)
-                if(card.active === true) {
-                    console.log(card)
+            state.cardsInfo = state.cardsInfo.map((card) => {
+                if (card.active === true) {
                     card.active = false;
-                    console.log("find card")
-                } 
+                    return card;
+                } else if (card.id === payload.id) {
+                    card.active = true;
+                    return card;
+                }
+                
             })
-            */
         }
     }, 
     extraReducers: {
