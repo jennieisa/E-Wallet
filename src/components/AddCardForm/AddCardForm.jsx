@@ -1,6 +1,6 @@
 import {addCard} from '../CardList/cardListSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const AddCardForm = () => {
@@ -11,7 +11,7 @@ const AddCardForm = () => {
 
     const user = useSelector((state) => state.userInfo.user);
     console.log(user)
-    const {userInput, setUserInput} = useState();
+    const {userInput} = useState();
 
     const handleSubmit = (e) => {
         e.preventDefault();

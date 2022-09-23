@@ -20,6 +20,12 @@ const userInfoSlice = createSlice({
             const [{name:{first, last}}] = action.payload.results;
             state.user = first + ' ' + last;
             state.status = "Fetched data is done";
+        },
+        [getUser.pending]: (state, action) => {
+            state.user = "Loading...";
+        },
+        [getUser.rejected]: (state, action) => {
+            state.user = "Couldn't fetch data.";
         }
     }
 });
