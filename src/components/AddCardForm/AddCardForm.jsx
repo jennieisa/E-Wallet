@@ -1,6 +1,6 @@
 import {addCard} from '../CardList/cardListSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 const AddCardForm = () => {
@@ -8,6 +8,9 @@ const AddCardForm = () => {
     const navigate = useNavigate();
 
     const {latestId} = useSelector((state) => state.cardList);
+
+    const user = useSelector((state) => state.userInfo.user);
+    console.log(user)
     const {userInput, setUserInput} = useState();
 
     const handleSubmit = (e) => {
@@ -48,7 +51,7 @@ const AddCardForm = () => {
             <article>
                 <p id="selectVendorInput">Vendor </p>
                 <p id="cardnumberInput">Cardnumber {userInput}</p>
-                <p id="cardholderInput">Cardholder {userInput}</p>
+                <p id="cardholderInput">{user}</p>
                 <p id="validInput">Valid {userInput}</p>
                 <p id="ccvInput">CCV</p>
                 <p>active: false</p>
@@ -57,7 +60,7 @@ const AddCardForm = () => {
                 <label htmlFor="cardnumber">CARDNUMBER</label>
                 <input id="cardnumber" type="text" onChange={() => handleChange("cardnumber")}/>
                 <label htmlFor="cardholder">CARDHOLDER</label>
-                <input id="cardholder" type="text" onChange={() => handleChange("cardholder")}/>
+                <input id="cardholder" type="text" value={user && user} readOnly/>
                 <label htmlFor="valid">VALID THRU</label>
                 <input id="valid" type="text" onChange={() => handleChange("valid")}/>
                 <label htmlFor="ccv">CCV</label>

@@ -17,8 +17,8 @@ const userInfoSlice = createSlice({
     extraReducers: {
         //async actions
         [getUser.fulfilled]: (state, action) => {
-            console.log(action.payload);
-            state.user = action.payload;
+            const [{name:{first, last}}] = action.payload.results;
+            state.user = first + ' ' + last;
             state.status = "Fetched data is done";
         }
     }

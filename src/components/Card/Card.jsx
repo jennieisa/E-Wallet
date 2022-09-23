@@ -1,10 +1,10 @@
-const Card = ({card}) => {
-    console.log(card)
+const Card = ({card, user}) => {
+    console.log(card, user)
     return (
         <article>
             <p>Vendor: {card.vendor}</p>
             <p>Cardnumber: {card.cardnumber}</p>
-            <p>Cardholder: {card.cardholder}</p>
+            <p>Cardholder: {user}</p>
             <p>Valid: {card.valid}</p>
             <p>active: {`${card.active}`}</p>
         </article>

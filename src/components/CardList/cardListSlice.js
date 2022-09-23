@@ -6,7 +6,6 @@ const cardListSlice = createSlice({
         cardsInfo: [
             {
                 cardnumber: 1234567891012345,
-                cardholder: "Jennie Isaksson 1",
                 valid: "22/23",
                 vendor: "amex",
                 id: 1,
@@ -14,7 +13,6 @@ const cardListSlice = createSlice({
             },       
             {
                 cardnumber: 1234567891012345,
-                cardholder: "Jennie Isaksson 2",
                 valid: "22/23",
                 vendor: "amex",
                 id: 2,
@@ -46,9 +44,6 @@ const cardListSlice = createSlice({
             })
         }
     }, 
-    extraReducers: {
-        //async actions
-    }
 })
 
 export default cardListSlice.reducer;

@@ -5,10 +5,10 @@ import { deleteCard } from "./cardListSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 
-
 const CardList = () => {
     const cards = useSelector((state) => state.cardList.cardsInfo);
-    console.log(cards);
+    const user = useSelector((state) =>  state.userInfo.user);
+    console.log(user)
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -18,21 +18,21 @@ const CardList = () => {
             <p>ACTIVE CARD</p>
             {cards.map((card, index) => (
                 card.active === true && 
-                    <Card key={index} card={card}/>
+                    <Card key={index} card={card} user={user} />
             ))}
             <section>
                 <p>INACTIVATE CARDS</p>
                 <ul>
                 {cards.map((card, index) => (
-                    card.active === false &&
+                    card.active === false && 
                         <li key={index}>
-                            <Card card={card}/>
+                            <Card card={card} user={user}/>
                             <button onClick={() => dispatch(activateCard(card))}>ACTIVATE CARD</button>
                             <button onClick={() => dispatch(deleteCard(index))}>DELETE CARD</button>
                         </li>
                 ))}
                 </ul>
-                <button onClick={() => navigate('/addcard')}>ADD A NEW CARD</button>
+                <button onClick={() => navigate('/addcard', {state: {user}})}>ADD A NEW CARD</button>
             </section>
         </section>
     )
