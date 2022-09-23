@@ -10,15 +10,9 @@ const cardListSlice = createSlice({
                 vendor: "ROBBER",
                 id: 1,
                 active: true,
-            },        {
-                cardnumber: 99999999999999,
-                valid: "22/23",
-                vendor: "GOLD",
-                id: 1,
-                active: false,
-            },    
+            },        
         ],
-        latestId: 2,
+        latestId: 1,
         amountCards: 1,
     },
     reducers: {
@@ -27,7 +21,7 @@ const cardListSlice = createSlice({
                 state.cardsInfo.push(payload);
                 state.latestId += 1;
                 state.amountCards += 1;
-            } else {
+            } else if (state.amountCards >= 3) {
                 return;
             }
         },
@@ -37,15 +31,13 @@ const cardListSlice = createSlice({
         },
         activateCard: (state, {payload}) => {
             state.cardsInfo = state.cardsInfo.map((card) => {
-                if (card.active === true) {
+                if(card.active === true) {
                     card.active = false;
-                    return card;
                 } else if (card.id === payload.id) {
                     card.active = true;
-                    return card;
-                } else {
-                    return card;
-                }   
+                    console.log(state.activeCard)
+                }
+                return card;
             })
         }
     }, 

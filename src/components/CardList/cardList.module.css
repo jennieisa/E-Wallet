@@ -4,8 +4,29 @@
     align-items: center;
 }
 
+.cardHeading {
+    font-size: 15px;
+    font-weight: normal;
+}
+
 .inactiveCardList {
     display: block;
     list-style: none;
     padding: 0px;
+}
+
+.btn {
+    padding: 8px;
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px gray;
+    margin: 5px;
+}
+
+.activateBtn {
+    background-color: lightgreen;
+}
+
+.deleteBtn {
+    background-color: lightcoral;
 }

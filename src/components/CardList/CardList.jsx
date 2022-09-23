@@ -16,24 +16,24 @@ const CardList = () => {
 
     return (
         <section className={styles.cardList}>
-            <p>ACTIVE CARD</p>
+            <h2 className={styles.cardHeading}>ACTIVE CARD</h2>
             {cards.map((card, index) => (
                 card.active === true && 
-                    <Card key={index} card={card} user={user} />
+                    <Card key={index} card={card} user={user}/>
             ))}
             <section>
-                <p>INACTIVATE CARDS</p>
+                <h2 className={styles.cardHeading}>INACTIVE CARDS</h2>
                 <ul className={styles.inactiveCardList}>
                 {cards.map((card, index) => (
                     card.active === false && 
-                        <li key={index}>
+                        <li key={index} >
                             <Card card={card} user={user}/>
-                            <button onClick={() => dispatch(activateCard(card))}>ACTIVATE CARD</button>
-                            <button onClick={() => dispatch(deleteCard(index))}>DELETE CARD</button>
+                            <button className={`${styles.activateBtn} ${styles.btn}`} onClick={() => dispatch(activateCard(card))}>ACTIVATE CARD</button>
+                            <button className={`${styles.deleteBtn} ${styles.btn}`} onClick={() => dispatch(deleteCard(index))}>DELETE CARD</button>
                         </li>
                 ))}
                 </ul>
-                <button onClick={() => navigate('/addcard', {state: {user}})}>ADD A NEW CARD</button>
+                <button className={styles.btn} onClick={() => navigate('/addcard', {state: {user}})}>ADD A NEW CARD</button>
             </section>
         </section>
     )
