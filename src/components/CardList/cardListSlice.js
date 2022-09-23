@@ -13,14 +13,24 @@ const cardListSlice = createSlice({
             },       
         ],
         latestId: 2,
+        amountCards: 1,
     },
     reducers: {
+        toManyCards: (state, {payload}) => {
+            if (state.amountCards === 3) {
+                return true;
+            } else {
+                return false;
+            }
+        },
         addCard: (state, {payload}) => {
             state.cardsInfo.push(payload);
             state.latestId += 1;
+            state.amountCards += 1;
         },
         deleteCard: (state, {payload}) => {
             state.cardsInfo.splice(payload, 1);
+            state.amountCards -= 1;
         },
         activateCard: (state, {payload}) => {
             state.cardsInfo = state.cardsInfo.map((card) => {
