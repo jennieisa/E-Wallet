@@ -1,5 +1,6 @@
 import Card from "../Card/Card";
 import { activateCard } from "./cardListSlice";
+import { deleteCard } from "./cardListSlice";
 
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
@@ -27,6 +28,7 @@ const CardList = () => {
                         <li key={index}>
                             <Card card={card}/>
                             <button onClick={() => dispatch(activateCard(card))}>ACTIVATE CARD</button>
+                            <button onClick={() => dispatch(deleteCard(index))}>DELETE CARD</button>
                         </li>
                 ))}
                 </ul>

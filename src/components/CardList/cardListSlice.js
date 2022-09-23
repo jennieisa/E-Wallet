@@ -29,21 +29,22 @@ const cardListSlice = createSlice({
             state.latestId += 1;
         },
         deleteCard: (state, {payload}) => {
-            state.cardsInfo = state.cardsInfo.filter((card) => card.id !== payload);
+            state.cardsInfo.splice(payload, 1);
         },
         activateCard: (state, {payload}) => {
+            console.log(payload)
+            state.cardsInfo = state.cardsInfo.filter((card) => card !== payload)
+            console.log(state.cardsInfo)
+            /*
             state.cardsInfo.map((card) => {
                 console.log(card)
                 if(card.active === true) {
+                    console.log(card)
                     card.active = false;
                     console.log("find card")
-                } else {
-                    console.log("cant find")
-                }
+                } 
             })
-
-            state.cardsInfo = state.cardsInfo.filter((card) => card.id === payload);
-            state.cardsInfo.active = true;
+            */
         }
     }, 
     extraReducers: {
