@@ -16,17 +16,14 @@ const cardListSlice = createSlice({
         amountCards: 1,
     },
     reducers: {
-        toManyCards: (state, {payload}) => {
-            if (state.amountCards === 3) {
-                return true;
-            } else {
-                return false;
-            }
-        },
         addCard: (state, {payload}) => {
-            state.cardsInfo.push(payload);
-            state.latestId += 1;
-            state.amountCards += 1;
+            if(state.amountCards < 3) {
+                state.cardsInfo.push(payload);
+                state.latestId += 1;
+                state.amountCards += 1;
+            } else {
+                return;
+            }
         },
         deleteCard: (state, {payload}) => {
             state.cardsInfo.splice(payload, 1);
@@ -42,8 +39,7 @@ const cardListSlice = createSlice({
                     return card;
                 } else {
                     return card;
-                }
-                
+                }   
             })
         }
     }, 

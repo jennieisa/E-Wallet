@@ -8,7 +8,6 @@ const AddCardForm = () => {
     const navigate = useNavigate();
 
     const {latestId} = useSelector((state) => state.cardList);
-
     const user = useSelector((state) => state.userInfo.user);
     console.log(user)
     const {userInput} = useState();
@@ -48,6 +47,8 @@ const AddCardForm = () => {
 
     return (
         <section>
+            <article>
+            </article>
             <article>
                 <p id="selectVendorInput">Vendor </p>
                 <p id="cardnumberInput">Cardnumber {userInput}</p>
