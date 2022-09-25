@@ -13,11 +13,21 @@
 
 .formField {
     padding: 5px;
+    width: 300px;
     font-size: 18px;
     font-family:'Courier New', Courier, monospace;
     margin: 2px;
+    background-color: lavenderblush;
+    border: 1px gray;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px black;
 }
 
 .addCardBtn {
     margin: 15px;
+}
+
+.invalid {
+    background-color: red;
+
 }

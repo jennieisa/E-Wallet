@@ -19,36 +19,57 @@ const AddCardForm = () => {
     console.log(user)
     const {userInput} = useState();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const formValidate = () => {
+        let inputObject;
+        let errorMessage = document.createElement("p");
         let cardnumberInput = document.querySelector('#cardnumber').value;
         let cardholderInput = document.querySelector('#cardholder').value;
         let validInput = document.querySelector('#valid').value;
         let ccvInput = document.querySelector('#ccv').value;
         let vendorInput = document.querySelector('#selectVendor').value;
 
-        console.log(cardholderInput, cardnumberInput, validInput, ccvInput, vendorInput)
-        
-        dispatch(
-            addCard({
+        if (cardnumberInput.length === 16) {
+            inputObject = {
                 cardnumber: cardnumberInput,
                 cardholder: cardholderInput,
-                valid: validInput,
+                validThru: validInput,
                 vendor: vendorInput,
                 ccv: ccvInput,
                 active: false,
-                id: latestId + 1,
-            })
-        )
+                id: latestId +1,
+            }
 
-        navigate('/cards');
+            return inputObject;
+        } else if (cardnumberInput.length > 16) {
+            alert("You have entered too many digits in the card number.");
+            return false;
+        } else if (cardnumberInput.length < 16) {
+            alert("You have entered too few digits in the card number.");
+            return false;
+        }
+
+        console.log(inputObject);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        let result = formValidate()
+
+        if (result) {
+            dispatch(
+                addCard(result)
+            )
+
+            navigate('/cards');
+        } else {
+            return;
+        }
     }
 
     const handleChange = (id) => {
         let inputs = document.querySelector(`#${id}`).value;
         document.querySelector(`#${id}Input`).textContent = inputs;
-        
-        console.log(inputs)
     }
 
     return (
@@ -73,22 +94,22 @@ const AddCardForm = () => {
                 <p id="validInput" className={cardStyle.cardTextInfo}>xx/xx {userInput}</p>
             </section>
             </article>
-            <form className={styles.addCardForm}>
+            <form id="cardForm" className={styles.addCardForm} onSubmit={(e) => handleSubmit(e)}>
                 <label htmlFor="cardnumber">CARDNUMBER</label>
-                <input className={styles.formField} id="cardnumber" type="text" onChange={() => handleChange("cardnumber")}/>
+                <input typeof='number' placeholder='1234 5678 9102 3456' className={styles.formField} id="cardnumber" type="text" onChange={() => handleChange("cardnumber")}/>
                 <label htmlFor="cardholder">CARDHOLDER</label>
                 <input className={styles.formField} id="cardholder" type="text" value={user && user} readOnly/>
                 <label htmlFor="valid">VALID THRU</label>
-                <input className={styles.formField} id="valid" type="text" onChange={() => handleChange("valid")}/>
+                <input placeholder="xx/xx" className={styles.formField} id="valid" type="text" onChange={() => handleChange("valid")}/>
                 <label htmlFor="ccv">CCV</label>
-                <input className={styles.formField} id="ccv" type="text" />
+                <input placeholder='xxx' className={styles.formField} id="ccv" type="text" />
                 <label htmlFor="selectVendor">VENDOR</label>
                 <select className={styles.formField} name="vendor" id="selectVendor" onChange={() => handleChange("selectVendor")}>
                     <option value="ROBBER">ROBBER</option>
                     <option value="GOLD">GOLD</option>
                     <option value="LIFE-SAVER">LIFE-SAVER</option>
                 </select>
-                <button className={`${cardListStyle.btn} ${styles.addCardBtn}`} onClick={(e) => handleSubmit(e)}>ADD CARD</button>
+                <button type="submit" className={`${cardListStyle.btn} ${styles.addCardBtn}`}>ADD CARD</button>
             </form>
         </section>
     )
