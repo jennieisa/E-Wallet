@@ -18,7 +18,7 @@ const userInfoSlice = createSlice({
         //async actions
         [getUser.fulfilled]: (state, action) => {
             const [{name:{first, last}}] = action.payload.results;
-            state.user = first + ' ' + last;
+            state.user = first.toUpperCase() + ' ' + last.toUpperCase();
             state.status = "Fetched data is done";
         },
         [getUser.pending]: (state, action) => {
