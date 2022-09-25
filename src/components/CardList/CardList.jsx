@@ -9,10 +9,19 @@ import { useNavigate } from 'react-router-dom';
 const CardList = () => {
     const cards = useSelector((state) => state.cardList.cardsInfo);
     const user = useSelector((state) =>  state.userInfo.user);
+    const amountOfCards = useSelector((state) => state.cardList.amountCards);
     console.log(user)
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const handleClick = () => {
+        if(amountOfCards === 3) {
+            alert("You can not have more than 3 cards in your Wallet.");
+        } else {
+            navigate('/addcard', {state: {user}})
+        }
+    }
 
     return (
         <section className={styles.cardList}>
@@ -33,7 +42,7 @@ const CardList = () => {
                         </li>
                 ))}
                 </ul>
-                <button className={styles.btn} onClick={() => navigate('/addcard', {state: {user}})}>ADD A NEW CARD</button>
+                <button className={styles.btn} onClick={() => handleClick()}>ADD A NEW CARD</button>
             </section>
         </section>
     )

@@ -29,10 +29,11 @@ const AddCardForm = () => {
         let vendorInput = document.querySelector('#selectVendor').value;
 
         if (cardnumberInput.length === 16) {
+            console.log(validInput)
             inputObject = {
                 cardnumber: cardnumberInput,
                 cardholder: cardholderInput,
-                validThru: validInput,
+                valid: validInput,
                 vendor: vendorInput,
                 ccv: ccvInput,
                 active: false,
