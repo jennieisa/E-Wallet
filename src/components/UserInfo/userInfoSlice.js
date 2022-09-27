@@ -22,10 +22,10 @@ const userInfoSlice = createSlice({
             state.status = "Fetched data is done";
         },
         [getUser.pending]: (state, action) => {
-            state.user = "Loading...";
+            state.status = "Loading...";
         },
         [getUser.rejected]: (state, action) => {
-            state.user = "Couldn't fetch data.";
+            state.status = "Couldn't fetch data.";
         }
     }
 });
