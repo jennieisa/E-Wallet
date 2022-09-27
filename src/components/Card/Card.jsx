@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 const Card = ({card, user}) => {
     const dispatch = useDispatch();
     return (
-        <article className={styles.card} onClick={() => dispatch(activateCard(card))}>
+        <article className={styles.card} onClick={() => {card.active === false && dispatch(activateCard(card))}}>
             <section className={styles.cardSection}>
                 <p><MdContactless size={35}/></p>
                 <p>{
