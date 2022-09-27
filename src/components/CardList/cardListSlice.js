@@ -17,7 +17,7 @@ const cardListSlice = createSlice({
     },
     reducers: {
         addCard: (state, {payload}) => {
-            if(state.amountCards < 3) {
+            if(state.amountCards < 4) {
                 state.cardsInfo.push(payload);
                 state.latestId += 1;
                 state.amountCards += 1;

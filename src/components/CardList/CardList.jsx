@@ -15,7 +15,7 @@ const CardList = () => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        if(amountOfCards === 3) {
+        if(amountOfCards === 4) {
             alert("You can not have more than 3 cards in your Wallet.");
         } else {
             navigate('/addcard', {state: {user}})
