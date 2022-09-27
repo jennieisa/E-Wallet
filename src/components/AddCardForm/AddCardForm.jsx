@@ -1,7 +1,6 @@
 import {addCard} from '../CardList/cardListSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import { GiRobber, GiGoldBar, GiLifeBuoy} from 'react-icons/gi';
 import { MdContactless } from 'react-icons/md';
 import {FcSimCardChip} from 'react-icons/fc';
@@ -16,7 +15,6 @@ const AddCardForm = () => {
 
     const {latestId} = useSelector((state) => state.cardList);
     const user = useSelector((state) => state.userInfo.user);
-    const {userInput} = useState();
 
     const formValidate = () => {
         let inputObject;
@@ -80,7 +78,7 @@ const AddCardForm = () => {
             </section>
             <section className={cardStyle.cardSection}>
                 <FcSimCardChip size={50}/>
-                <p id="cardnumberInput" className={cardStyle.cardnumber}>xxxx xxxx xxxx xxxx {userInput}</p>
+                <p id="cardnumberInput" className={cardStyle.cardnumber}>xxxx xxxx xxxx xxxx</p>
             </section>
             <section className={cardStyle.cardSection}>
                 <p className={cardStyle.cardTextHeading}>CARDHOLDER NAME</p>
@@ -88,7 +86,7 @@ const AddCardForm = () => {
             </section>
             <section className={cardStyle.cardSection}>
                 <p className={cardStyle.cardTextInfo}>{user}</p>
-                <p id="validInput" className={cardStyle.cardTextInfo}>xx/xx {userInput}</p>
+                <p id="validInput" className={cardStyle.cardTextInfo}>xx/xx</p>
             </section>
             </article>
             <form id="cardForm" className={styles.addCardForm} onSubmit={(e) => handleSubmit(e)}>
