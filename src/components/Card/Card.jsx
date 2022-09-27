@@ -1,12 +1,15 @@
 import styles from './card.module.css';
+import { activateCard } from "../CardList/cardListSlice";
 
 import { GiRobber, GiGoldBar, GiLifeBuoy} from 'react-icons/gi';
 import { MdContactless } from 'react-icons/md';
 import {FcSimCardChip} from 'react-icons/fc';
+import { useDispatch } from 'react-redux';
 
 const Card = ({card, user}) => {
+    const dispatch = useDispatch();
     return (
-        <article className={styles.card}>
+        <article className={styles.card} onClick={() => dispatch(activateCard(card))}>
             <section className={styles.cardSection}>
                 <p><MdContactless size={35}/></p>
                 <p>{

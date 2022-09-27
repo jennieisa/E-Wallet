@@ -35,7 +35,6 @@ const cardListSlice = createSlice({
                     card.active = false;
                 } else if (card.id === payload.id) {
                     card.active = true;
-                    console.log(state.activeCard)
                 }
                 return card;
             })

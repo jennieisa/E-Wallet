@@ -16,7 +16,7 @@ const CardList = () => {
 
     const handleClick = () => {
         if(amountOfCards === 4) {
-            alert("You can not have more than 3 cards in your Wallet.");
+            alert("You can not have more than 4 cards in your Wallet.");
         } else {
             navigate('/addcard', {state: {user}})
         }
@@ -34,9 +34,8 @@ const CardList = () => {
                 <ul className={styles.inactiveCardList}>
                 {cards.map((card, index) => (
                     card.active === false && 
-                        <li key={index} >
+                        <li key={index} className={styles.cardList}>
                             <Card card={card} user={user}/>
-                            <button className={`${styles.activateBtn} ${styles.btn}`} onClick={() => dispatch(activateCard(card))}>ACTIVATE CARD</button>
                             <button className={`${styles.deleteBtn} ${styles.btn}`} onClick={() => dispatch(deleteCard(index))}>DELETE CARD</button>
                         </li>
                 ))}
