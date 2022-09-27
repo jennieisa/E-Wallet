@@ -10,7 +10,6 @@ const CardList = () => {
     const cards = useSelector((state) => state.cardList.cardsInfo);
     const user = useSelector((state) =>  state.userInfo.user);
     const amountOfCards = useSelector((state) => state.cardList.amountCards);
-    console.log(user)
 
     const dispatch = useDispatch();
     const navigate = useNavigate();

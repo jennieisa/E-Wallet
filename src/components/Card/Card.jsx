@@ -5,7 +5,6 @@ import { MdContactless } from 'react-icons/md';
 import {FcSimCardChip} from 'react-icons/fc';
 
 const Card = ({card, user}) => {
-    console.log(card, user)
     return (
         <article className={styles.card}>
             <section className={styles.cardSection}>

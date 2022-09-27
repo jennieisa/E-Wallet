@@ -16,7 +16,6 @@ const AddCardForm = () => {
 
     const {latestId} = useSelector((state) => state.cardList);
     const user = useSelector((state) => state.userInfo.user);
-    console.log(user)
     const {userInput} = useState();
 
     const formValidate = () => {
@@ -29,7 +28,6 @@ const AddCardForm = () => {
         let vendorInput = document.querySelector('#selectVendor').value;
 
         if (cardnumberInput.length === 16) {
-            console.log(validInput)
             inputObject = {
                 cardnumber: cardnumberInput,
                 cardholder: cardholderInput,
@@ -48,8 +46,6 @@ const AddCardForm = () => {
             alert("You have entered too few digits in the card number.");
             return false;
         }
-
-        console.log(inputObject);
     }
 
     const handleSubmit = (e) => {
